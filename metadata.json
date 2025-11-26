@@ -1,0 +1,5 @@
+{
+  "name": "Flash Loan Exploit Simulator",
+  "description": "An interactive, educational simulation of a Flash Loan Attack combined with Oracle Manipulation to demonstrate DeFi vulnerabilities.",
+  "requestFramePermissions": []
+}
