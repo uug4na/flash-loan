@@ -102,7 +102,7 @@ const DeepDivePanel: React.FC<Props> = ({ log }) => {
         ) : (
           <div className="space-y-2">
              <div className="flex items-center gap-2 text-blue-400 mb-2 text-[10px] uppercase tracking-wider font-bold">
-                <Code className="w-3 h-3" /> Solidarity Snippet
+                <Code className="w-3 h-3" /> Solidity Snippet
              </div>
              <div className="bg-[#0d1117] p-4 rounded-lg border border-slate-800 overflow-x-auto">
                <pre className="text-xs font-mono leading-relaxed text-slate-300 whitespace-pre-wrap">

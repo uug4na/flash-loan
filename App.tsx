@@ -2,7 +2,8 @@ import React, { useState } from 'react';
 import { SimulationStep, WalletState, ProtocolState, StepLog } from './types';
 import StepVisualizer from './components/StepVisualizer';
 import DeepDivePanel from './components/DeepDivePanel';
-import { Play, RotateCcw, ChevronRight, Info, DollarSign, Wallet, TrendingUp, Cpu } from 'lucide-react';
+import EducationSlideover from './components/EducationSlideover';
+import { Play, RotateCcw, ChevronRight, Info, DollarSign, Wallet, TrendingUp, Cpu, BookOpen } from 'lucide-react';
 import { LineChart, Line, XAxis, YAxis, Tooltip, ResponsiveContainer, CartesianGrid } from 'recharts';
 
 // --- Constants & Config ---
@@ -33,6 +34,7 @@ export default function App() {
   const [wallet, setWallet] = useState<WalletState>(INITIAL_WALLET);
   const [protocol, setProtocol] = useState<ProtocolState>(INITIAL_PROTOCOL);
   const [currentLog, setCurrentLog] = useState<StepLog | null>(null);
+  const [isGuideOpen, setIsGuideOpen] = useState(false);
   
   const [priceHistory, setPriceHistory] = useState<{step: number, price: number}[]>([
     { step: 0, price: INITIAL_PRICE }
@@ -251,6 +253,8 @@ usdc.transfer(owner, profit);`,
 
   return (
     <div className="min-h-screen bg-slate-950 text-slate-200 p-4 font-sans selection:bg-rose-500/30">
+      <EducationSlideover isOpen={isGuideOpen} onClose={() => setIsGuideOpen(false)} />
+      
       <div className="max-w-7xl mx-auto space-y-6">
         
         {/* Header */}
@@ -263,6 +267,14 @@ usdc.transfer(owner, profit);`,
             <p className="text-slate-400 text-sm mt-1 ml-11">Visualizing Flash Loan Oracle Manipulation Attacks</p>
           </div>
           <div className="flex gap-4 mt-4 md:mt-0">
+             <button
+               onClick={() => setIsGuideOpen(true)}
+               className="flex items-center gap-2 px-3 py-1.5 rounded-lg text-sm font-bold bg-slate-800 text-slate-300 hover:bg-slate-700 hover:text-white transition-colors border border-slate-700"
+             >
+               <BookOpen className="w-4 h-4" />
+               Concept Guide
+             </button>
+
              <div className="flex items-center gap-2 bg-slate-900 px-3 py-1.5 rounded-lg border border-slate-800">
                <span className="text-xs text-slate-500 uppercase font-bold">Block Status</span>
                <div className={`w-2 h-2 rounded-full ${step > 0 && step < 6 ? 'bg-amber-500 animate-pulse' : 'bg-green-500'}`} />
