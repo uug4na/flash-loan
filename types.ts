@@ -40,4 +40,5 @@ export interface StepLog {
   formula?: string;
   mechanics: LogEntry[];
   vulnerabilityNote?: string;
+  codeSnippet?: string; // New field for Solidity code
 }
